@@ -1,0 +1,41 @@
+class Speed {
+String speed;
+Speed()
+{
+}
+}
+class SpeedImpleimentation{
+	String setSpeed(Speed s,int spd) { //throws SpeedInvalidException
+	s.speed="VALID";
+	try {
+	if(spd<90 && spd>40)
+	{
+		return  s.speed;
+		}
+	else 
+	{
+		throw new  SpeedInvalidException("NOT VALID");
+	}
+	}
+	catch(SpeedInvalidException e)
+	{
+		return "NOT VALID";
+	}
+	}
+}
+
+class SpeedInvalidException extends Exception{
+	
+SpeedInvalidException(String msg)
+	{
+		super(msg);
+		}
+	}
+class Cal{
+	public static void main(String[] args) throws SpeedInvalidException {
+	
+		Speed s=new Speed();
+		SpeedImpleimentation p=new SpeedImpleimentation();
+		System.out.println(p.setSpeed(s,50 ) );
+		
+	}	
